@@ -3,8 +3,8 @@
 package main
 
 import (
-	"strings"
 	"log"
+	"strings"
 )
 
 func main() {

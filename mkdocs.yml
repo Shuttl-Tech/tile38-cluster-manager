@@ -1,0 +1,46 @@
+site_name: Tile38 Cluster Manager
+
+repo_name: Shuttl-Tech/tile38-cluster-manager
+repo_url: https://github.com/Shuttl-Tech/tile38-cluster-manager
+
+site_url: https://shuttl-tech.github.io/tile38-cluster-manager
+site_description: A sidecar utility for Tile38 cluster
+site_author: Shuttl Tech
+
+docs_dir: site
+site_dir: docs
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'White'
+    accent: 'Teal'
+  icon:
+    logo: octicons/database-24
+
+markdown_extensions:
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - markdown.extensions.def_list
+  - attr_list
+  - meta
+  - markdown_include.include:
+      base_path: './site'

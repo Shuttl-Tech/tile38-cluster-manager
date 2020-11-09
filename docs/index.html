@@ -1,0 +1,601 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A sidecar utility for Tile38 cluster">
+      
+      
+      
+        <link rel="canonical" href="https://shuttl-tech.github.io/tile38-cluster-manager/">
+      
+      
+        <meta name="author" content="Shuttl Tech">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>Tile38 Cluster Manager</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f0267088.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="teal">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manager" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://shuttl-tech.github.io/tile38-cluster-manager" title="Tile38 Cluster Manager" class="md-header-nav__button md-logo" aria-label="Tile38 Cluster Manager">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 1.25c-2.487 0-4.774.402-6.466 1.079-.844.337-1.577.758-2.112 1.264C2.886 4.1 2.5 4.744 2.5 5.5v12.987l.026.013H2.5c0 .756.386 1.4.922 1.907.535.506 1.268.927 2.112 1.264 1.692.677 3.979 1.079 6.466 1.079s4.773-.402 6.466-1.079c.844-.337 1.577-.758 2.112-1.264.536-.507.922-1.151.922-1.907h-.026l.026-.013V5.5c0-.756-.386-1.4-.922-1.907-.535-.506-1.268-.927-2.112-1.264C16.773 1.652 14.487 1.25 12 1.25zM4 5.5c0-.21.104-.487.453-.817.35-.332.899-.666 1.638-.962C7.566 3.131 9.655 2.75 12 2.75c2.345 0 4.434.382 5.909.971.74.296 1.287.63 1.638.962.35.33.453.606.453.817 0 .21-.104.487-.453.817-.35.332-.899.666-1.638.962-1.475.59-3.564.971-5.909.971-2.345 0-4.434-.382-5.909-.971-.74-.296-1.287-.63-1.638-.962C4.103 5.987 4 5.711 4 5.5zM20 12V7.871a7.842 7.842 0 01-1.534.8C16.773 9.348 14.487 9.75 12 9.75s-4.774-.402-6.466-1.079A7.843 7.843 0 014 7.871V12c0 .21.104.487.453.817.35.332.899.666 1.638.961 1.475.59 3.564.972 5.909.972 2.345 0 4.434-.382 5.909-.972.74-.295 1.287-.629 1.638-.96.35-.33.453-.607.453-.818zM4 14.371c.443.305.963.572 1.534.8 1.692.677 3.979 1.079 6.466 1.079s4.773-.402 6.466-1.079a7.842 7.842 0 001.534-.8v4.116l.013.013H20c0 .21-.104.487-.453.817-.35.332-.899.666-1.638.962-1.475.59-3.564.971-5.909.971-2.345 0-4.434-.382-5.909-.971-.74-.296-1.287-.63-1.638-.962-.35-.33-.453-.606-.453-.817h-.013L4 18.487V14.37z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tile38 Cluster Manager
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Manager
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Shuttl-Tech/tile38-cluster-manager/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shuttl-Tech/tile38-cluster-manager
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://shuttl-tech.github.io/tile38-cluster-manager" title="Tile38 Cluster Manager" class="md-nav__button md-logo" aria-label="Tile38 Cluster Manager">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 1.25c-2.487 0-4.774.402-6.466 1.079-.844.337-1.577.758-2.112 1.264C2.886 4.1 2.5 4.744 2.5 5.5v12.987l.026.013H2.5c0 .756.386 1.4.922 1.907.535.506 1.268.927 2.112 1.264 1.692.677 3.979 1.079 6.466 1.079s4.773-.402 6.466-1.079c.844-.337 1.577-.758 2.112-1.264.536-.507.922-1.151.922-1.907h-.026l.026-.013V5.5c0-.756-.386-1.4-.922-1.907-.535-.506-1.268-.927-2.112-1.264C16.773 1.652 14.487 1.25 12 1.25zM4 5.5c0-.21.104-.487.453-.817.35-.332.899-.666 1.638-.962C7.566 3.131 9.655 2.75 12 2.75c2.345 0 4.434.382 5.909.971.74.296 1.287.63 1.638.962.35.33.453.606.453.817 0 .21-.104.487-.453.817-.35.332-.899.666-1.638.962-1.475.59-3.564.971-5.909.971-2.345 0-4.434-.382-5.909-.971-.74-.296-1.287-.63-1.638-.962C4.103 5.987 4 5.711 4 5.5zM20 12V7.871a7.842 7.842 0 01-1.534.8C16.773 9.348 14.487 9.75 12 9.75s-4.774-.402-6.466-1.079A7.843 7.843 0 014 7.871V12c0 .21.104.487.453.817.35.332.899.666 1.638.961 1.475.59 3.564.972 5.909.972 2.345 0 4.434-.382 5.909-.972.74-.295 1.287-.629 1.638-.96.35-.33.453-.607.453-.818zM4 14.371c.443.305.963.572 1.534.8 1.692.677 3.979 1.079 6.466 1.079s4.773-.402 6.466-1.079a7.842 7.842 0 001.534-.8v4.116l.013.013H20c0 .21-.104.487-.453.817-.35.332-.899.666-1.638.962-1.475.59-3.564.971-5.909.971-2.345 0-4.434-.382-5.909-.971-.74-.296-1.287-.63-1.638-.962-.35-.33-.453-.606-.453-.817h-.013L4 18.487V14.37z"/></svg>
+
+    </a>
+    Tile38 Cluster Manager
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Shuttl-Tech/tile38-cluster-manager/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Shuttl-Tech/tile38-cluster-manager
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Manager
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="." class="md-nav__link md-nav__link--active">
+      Manager
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-model" class="md-nav__link">
+    Deployment Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-and-failover" class="md-nav__link">
+    Clustering and Failover
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-model" class="md-nav__link">
+    Deployment Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-and-failover" class="md-nav__link">
+    Clustering and Failover
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Shuttl-Tech/tile38-cluster-manager/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="manager">Manager<a class="headerlink" href="#manager" title="Permanent link">&para;</a></h1>
+<p>Tile38 Cluster Manager is a sidecar utility to help deploy a distributed, dynamic <a href="https://github.com/tidwall/tile38">Tile38</a> cluster inside Consul Connect network mesh.</p>
+<p>The cluster manager runs as a proxy alongside a Tile38 database and provides following features:</p>
+<ul>
+<li>Clustering with leader election</li>
+<li>Data replication from active leader</li>
+<li>Handling node failures and promoting a follower</li>
+<li>Authorization and network traffic encryption using Consul Connect</li>
+</ul>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>Pre-built binaries are available from <a href="https://github.com/Shuttl-Tech/tile38-cluster-manager/releases">releases</a> page. Alternatively, you can install the manager using <code>go get</code> or pull the docker image.</p>
+<p>Using <code>go get</code></p>
+<div class="highlight"><pre><span></span><code>go get -u github.com/Shuttl-Tech/tile38-cluster-manager
+</code></pre></div>
+<h2 id="deployment-model">Deployment Model<a class="headerlink" href="#deployment-model" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Opinions are reserved</p>
+<p>The cluster manager makes some assumptions about the deployment model. Specifically, it assumes that the service is deployed in a Connect mesh, and service discovery is provided by Consul catalog.</p>
+</div>
+<p>The manager expects to run inside Consul Connect network mesh, and all the traffic to and from the main Tile38 process is proxied through the manager.</p>
+<p>Each manager process provides two services - The leader, and the follower. Both of these services must be registered in Consul Catalog for the manager to function properly. Optionally, the manager itself can also register the services in consul catalog if so needed.</p>
+<p>A manager process listens on three network interfaces.</p>
+<ul>
+<li>Writer (<code>W</code>) - Accepts connections from clients and proxies to Tile38</li>
+<li>Reader (<code>R</code>) - Accepts connections from clients and proxies to Tile38</li>
+<li>Replication Bridge (<code>B</code>) - Accepts connections from Tile38 and proxies to active leader</li>
+</ul>
+<p>At any point in time, only one manager process can be the leader, all other instances become followers and replicate data from the active leader. The leader node is responsible for write operations, and the followers are responsible for read operations.</p>
+<p>The writer and reader listeners correspond to the leader and follower services registered in consul catalog. Both of these listeners are active and listening all the times, but how they proxy the network traffic changes based on the role of the instance.</p>
+<p>When the manager is in <code>Leader</code> role, the <code>reader</code> listener (<code>R</code>) proxies the traffic to other available instances, and the <code>writer</code> listener (<code>W</code>) proxies to the underlying Tile38 listener.</p>
+<p>When the manager is in <code>Follower</code> role, the <code>reader</code> listener (<code>R</code>) proxies the traffic to the underlying Tile38 listener, and the <code>writer</code> listener (<code>W</code>) proxies to the active leader.</p>
+<p>The replication bridge <code>B</code> is active only when the manager is in follower role, and always proxies to the <code>reader</code> interface of the active leader.</p>
+<p>Following diagram shows the writes operations on a cluster of 3 nodes.</p>
+<p><img alt="Write Operations Proxy" src="images/manger-writes.jpg" /></p>
+<p>Note that a client can write to any of the available nodes, more specifically, to <code>L1</code>, <code>L2</code> or <code>L3</code>, but the writes are always handled by the leader node, either directly or via proxy from <code>L2</code> and <code>L3</code>.</p>
+<p>Also, note that the reads are handled by followers directly. The diagram does not show it, but the reads from leader are proxied to a random follower, similar to writes.</p>
+<p>A service which intends to consume Tile38 should rely on Consul based service discovery and connect to either <code>leader</code> or the <code>follower</code> service depending on whether it wants to perform writes or read operations.</p>
+<div class="admonition caution">
+<p class="admonition-title">Manager is Connect Native</p>
+<p>Note that the manager runs in <a href="https://www.consul.io/docs/connect/native">Connect Native</a> mode, so a Connect sidecar proxy is neither required nor expected. The client is expected to make a direct connection with the manager.  </p>
+<p>Every listener exposed by the manager expects mTLS authorization with a certificate issued by Connect CA.</p>
+</div>
+<h2 id="clustering-and-failover">Clustering and Failover<a class="headerlink" href="#clustering-and-failover" title="Permanent link">&para;</a></h2>
+<p>The managers uses Consul KV lock based leadership election mechanism. A manager process becomes the leader if it is able to acquire the lock, otherwise it becomes a follower. Depending on the role, the manager executes appropriate commands on its underlying Tile38 instance to start or stop data replication.</p>
+<p>If the leadership lock is released for any reason, all active manager processes perform the same series of actions once again and converge on a reliable state with a new leader.</p>
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
+<p>When deploying with a scheduler that manages the service in consul catalog, keep in mind that the catalog service definition requires a <code>meta</code> attribute <code>id</code> that must be set to the same unique ID of the instance as configured with <code>--id</code> command line flag or <code>SERVICE_ID</code> environment variable. This meta attribute is used in service discovery to find the real network address of the active leader. When running with <code>--service.manage</code> flag, the manager takes care to correctly register the services in consul catalog.</p>
+<p>When deploying with Nomad, the following jobspec can be used as a reference:</p>
+<details class="note"><summary>Jobspec</summary><div class="highlight"><pre><span></span><code>job &quot;tile38-cluster&quot; {
+  update {
+    max_parallel      = 3
+    canary            = 3
+  }
+
+  group &quot;cluster&quot; {
+    count = 2
+
+    network {
+      mode = &quot;bridge&quot;
+      port &quot;tile38&quot; {
+        to = &quot;9851&quot;
+      }
+
+      port &quot;leader&quot; {
+        to = &quot;-1&quot;
+      }
+
+      port &quot;follower&quot; {
+        to = &quot;-1&quot;
+      }
+    }
+
+    service {
+      name = &quot;tile38-reader&quot;
+      port = &quot;follower&quot;
+      task = &quot;manager&quot;
+
+      connect {
+        native = true
+      }
+
+      check {
+        name           = &quot;Tile38 Follower Listener&quot;
+        initial_status = &quot;warning&quot;
+        type           = &quot;tcp&quot;
+        port           = &quot;follower&quot;
+      }
+
+      meta {
+        id = &quot;${NOMAD_ALLOC_ID}&quot;
+      }
+    }
+
+    service {
+      name = &quot;tile38-writer&quot;
+      port = &quot;leader&quot;
+      task = &quot;manager&quot;
+
+      connect {
+        native = true
+      }
+
+      check {
+        name           = &quot;Tile38 Writer Listener&quot;
+        initial_status = &quot;warning&quot;
+        type           = &quot;tcp&quot;
+        port           = &quot;leader&quot;
+      }
+
+      meta {
+        id = &quot;${NOMAD_ALLOC_ID}&quot;
+      }
+    }
+
+    task &quot;server&quot; {
+      leader = true
+      driver = &quot;docker&quot;
+      config {
+        image = &quot;tile38/tile38:latest&quot;
+      }
+    }
+
+    task &quot;manager&quot; {
+      driver = &quot;docker&quot;
+      config {
+        image = &quot;tile38-cluster-manager:latest&quot;
+      }
+
+      env {
+        # Set the unique ID to the allocation ID
+        SERVICE_ID  = &quot;${NOMAD_ALLOC_ID}&quot;
+
+        # Advertise the IP of the host
+        ADVERTISE   = &quot;${attr.unique.network.ip-address}&quot;
+
+        # ... other configuration
+      }
+    }
+  }
+}
+</code></pre></div>
+</details>
+<hr />
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Following configuration flags are supported by <code>tile38-cluster-manager</code>.</p>
+<p>Configuration can be provided either via command line flags or the environment variables mentioned against each flag.</p>
+<dl>
+<dt><mark><code>--id</code> <code>(required: "")</code>, <code>env: SERVICE_ID</code></mark></dt>
+<dd>
+<p>Unique ID for the service instance  </p>
+</dd>
+<dt><mark><code>--advertise</code> <code>(required: "")</code>, <code>env: ADVERTISE</code></mark></dt>
+<dd>
+<p>Network address to advertise in consul catalog  </p>
+</dd>
+<dt><mark><code>--server.addr</code> <code>(optional: 127.0.0.1)</code>, <code>env: SERVER_ADDR</code></mark></dt>
+<dd>
+<p>Address of the server  </p>
+</dd>
+<dt><mark><code>--server.port</code> <code>(required: "")</code>, <code>env: SERVER_PORT</code></mark></dt>
+<dd>
+<p>Network port of the server  </p>
+</dd>
+<dt><mark><code>--bind.addr.leader</code> <code>(optional: 0.0.0.0)</code>, <code>env: BIND_ADDR_LEADER</code></mark></dt>
+<dd>
+<p>Network address for leader listener  </p>
+</dd>
+<dt><mark><code>--bind.port.leader</code> <code>(required: "")</code>, <code>env: BIND_PORT_LEADER</code></mark></dt>
+<dd>
+<p>Network port for the leader listener  </p>
+</dd>
+<dt><mark><code>--bind.addr.follower</code> <code>(optional: 0.0.0.0)</code>, <code>env: BIND_ADDR_FOLLOWER</code></mark></dt>
+<dd>
+<p>Network address for follower listener  </p>
+</dd>
+<dt><mark><code>--bind.port.follower</code> <code>(required: "")</code>, <code>env: BIND_PORT_FOLLOWER</code></mark></dt>
+<dd>
+<p>Network port for the follower listener  </p>
+</dd>
+<dt><mark><code>--consul.addr</code> <code>(optional: 127.0.0.1:8500)</code>, <code>env: CONSUL_HTTP_ADDR</code></mark></dt>
+<dd>
+<p>IP and port of the consul agent  </p>
+</dd>
+<dt><mark><code>--consul.lock.prefix</code> <code>(optional: _locks/tile38/cluster/manager)</code>, <code>env: CONSUL_LOCK_PREFIX</code></mark></dt>
+<dd>
+<p>KV path prefix to manage locks  </p>
+</dd>
+<dt><mark><code>--dogstatsd.addr</code> <code>(optional: 127.0.0.1)</code>, <code>env: DD_AGENT_HOST</code></mark></dt>
+<dd>
+<p>Address of the DogStatsd agent  </p>
+</dd>
+<dt><mark><code>--dogstatsd.port</code> <code>(optional: 8126)</code>, <code>env: DD_AGENT_PORT</code></mark></dt>
+<dd>
+<p>Port of the DogStatsd agent  </p>
+</dd>
+<dt><mark><code>--service.manage</code> <code>(optional: "")</code>, <code>env: SERVICE_MANAGE</code></mark></dt>
+<dd>
+<p>Manage self registration in consul catalog when true  </p>
+</dd>
+<dt><mark><code>--service.name.leader</code> <code>(optional: tile38-writer)</code>, <code>env: SERVICE_NAME_LEADER</code></mark></dt>
+<dd>
+<p>Service name of the leader listener  </p>
+</dd>
+<dt><mark><code>--service.name.follower</code> <code>(optional: tile38-reader)</code>, <code>env: SERVICE_NAME_FOLLOWER</code></mark></dt>
+<dd>
+<p>Service name of the follower listener  </p>
+</dd>
+</dl>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: [],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

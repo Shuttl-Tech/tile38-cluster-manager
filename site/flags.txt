@@ -1,0 +1,82 @@
+## Configuration
+
+Following configuration flags are supported by `tile38-cluster-manager`.
+
+Configuration can be provided either via command line flags or the environment variables mentioned against each flag.
+
+
+==`--id` `(required: "")`, `env: SERVICE_ID`==
+
+:    Unique ID for the service instance  
+
+
+==`--advertise` `(required: "")`, `env: ADVERTISE`==
+
+:    Network address to advertise in consul catalog  
+
+
+==`--server.addr` `(optional: 127.0.0.1)`, `env: SERVER_ADDR`==
+
+:    Address of the server  
+
+
+==`--server.port` `(required: "")`, `env: SERVER_PORT`==
+
+:    Network port of the server  
+
+
+==`--bind.addr.leader` `(optional: 0.0.0.0)`, `env: BIND_ADDR_LEADER`==
+
+:    Network address for leader listener  
+
+
+==`--bind.port.leader` `(required: "")`, `env: BIND_PORT_LEADER`==
+
+:    Network port for the leader listener  
+
+
+==`--bind.addr.follower` `(optional: 0.0.0.0)`, `env: BIND_ADDR_FOLLOWER`==
+
+:    Network address for follower listener  
+
+
+==`--bind.port.follower` `(required: "")`, `env: BIND_PORT_FOLLOWER`==
+
+:    Network port for the follower listener  
+
+
+==`--consul.addr` `(optional: 127.0.0.1:8500)`, `env: CONSUL_HTTP_ADDR`==
+
+:    IP and port of the consul agent  
+
+
+==`--consul.lock.prefix` `(optional: _locks/tile38/cluster/manager)`, `env: CONSUL_LOCK_PREFIX`==
+
+:    KV path prefix to manage locks  
+
+
+==`--dogstatsd.addr` `(optional: 127.0.0.1)`, `env: DD_AGENT_HOST`==
+
+:    Address of the DogStatsd agent  
+
+
+==`--dogstatsd.port` `(optional: 8126)`, `env: DD_AGENT_PORT`==
+
+:    Port of the DogStatsd agent  
+
+
+==`--service.manage` `(optional: "")`, `env: SERVICE_MANAGE`==
+
+:    Manage self registration in consul catalog when true  
+
+
+==`--service.name.leader` `(optional: tile38-writer)`, `env: SERVICE_NAME_LEADER`==
+
+:    Service name of the leader listener  
+
+
+==`--service.name.follower` `(optional: tile38-reader)`, `env: SERVICE_NAME_FOLLOWER`==
+
+:    Service name of the follower listener  
+
+
